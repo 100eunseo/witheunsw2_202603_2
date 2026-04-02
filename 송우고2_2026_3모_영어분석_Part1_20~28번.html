@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>송우고2 2026 3모 중간고사 범위 Part 1 (20~28번) | Witheun by.은서쌤</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   Toss.tech 스타일 디자인 시스템
+   배경 흰색, 타이포 중심, 미니멀 플랫
+═══════════════════════════════════════════════ */
+:root {
+  --g900:#111827; --g800:#1F2937; --g700:#374151; --g600:#4B5563;
+  --g500:#6B7280; --g400:#9CA3AF; --g300:#D1D5DB; --g200:#E5E7EB;
+  --g100:#F3F4F6; --g50:#F9FAFB; --w:#FFFFFF;
+
+  --blue:#3182F6;  --blue-bg:#EFF6FF;  --blue-mid:#DBEAFE;
+  --green:#16A34A; --green-bg:#F0FDF4; --green-mid:#DCFCE7;
+  --red:#DC2626;   --red-bg:#FEF2F2;   --red-mid:#FEE2E2;
+  --orange:#EA580C;--orange-bg:#FFF7ED;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;
+  --yellow:#CA8A04;--yellow-bg:#FEFCE8;--yellow-mid:#FEF9C3;
+  --teal:#0891B2;  --teal-bg:#ECFEFF;
+
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:0 4px 12px rgba(0,0,0,.06);
+}
+
+/* ── Reset & Base ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,
+    'Segoe UI',system-ui,sans-serif;
+  font-size:15px;letter-spacing:-0.4px;line-height:1.75;
+  background:#ffffff;color:var(--g900);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── 레이아웃 ── */
+.wrap{max-width:680px;margin:0 auto;padding:0 20px 96px;}
+
+/* ═══════════════════════════════
+   HEADER — Toss.tech 스타일
+═══════════════════════════════ */
+.top-header{
+  padding:48px 0 28px;
+  border-bottom:1px solid var(--g200);
+  margin-bottom:0;
+}
+.top-header h1{
+  font-size:26px;font-weight:800;letter-spacing:-0.8px;
+  color:var(--g900);line-height:1.3;margin-bottom:6px;
+}
+.top-header .sub{
+  font-size:14px;color:var(--g500);font-weight:500;letter-spacing:-0.2px;
+}
+
+/* ═══════════════════════════════
+   TAB NAV — 얇고 심플한 pill
+═══════════════════════════════ */
+.pill-nav{
+  display:flex;flex-wrap:wrap;gap:6px;
+  position:sticky;top:0;z-index:100;
+  background:#fff;
+  padding:14px 0 12px;
+  border-bottom:1px solid var(--g200);
+  margin-bottom:32px;
+}
+.pill{
+  height:32px;padding:0 14px;border-radius:100px;
+  font-size:13px;font-weight:600;letter-spacing:-0.2px;
+  border:1.5px solid var(--g200);
+  background:#fff;color:var(--g500);
+  cursor:pointer;transition:all .18s ease;
+  display:inline-flex;align-items:center;
+}
+.pill:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-bg);}
+.pill.active{
+  background:var(--g900);color:#fff;
+  border-color:var(--g900);
+}
+
+/* ═══════════════════════════════
+   PANEL 전환 애니메이션
+═══════════════════════════════ */
+.q-panel{display:none;animation:fadeUp .25s ease;}
+.q-panel.active{display:block;}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ─── Q 카드 ─── */
+.q-card{
+  background:#fff;
+  border:1px solid var(--g200);
+  border-radius:var(--radius-lg);
+  padding:28px 24px;
+  margin-bottom:16px;
+}
+
+/* ─── Q 타이틀 헤더 ─── */
+.q-title{
+  display:flex;align-items:center;gap:10px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--g100);
+  margin-bottom:20px;
+}
+.q-num{
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+  background:var(--g900);color:#fff;
+  padding:3px 10px;border-radius:100px;
+  flex-shrink:0;
+}
+.q-type{
+  font-size:13px;font-weight:600;color:var(--g700);
+  line-height:1.4;letter-spacing:-0.2px;
+}
+.q-type-tag{
+  font-size:11px;font-weight:700;letter-spacing:.2px;
+  padding:3px 8px;border-radius:100px;
+  margin-left:auto;flex-shrink:0;
+  text-transform:uppercase;
+}
+.q-type-tag.claim  {background:var(--blue-mid);  color:var(--blue);}
+.q-type-tag.meaning{background:var(--purple-bg);  color:var(--purple);}
+.q-type-tag.title  {background:var(--green-mid);  color:var(--green);}
+.q-type-tag.tf     {background:var(--orange-bg);  color:var(--orange);}
+.q-type-tag.vocab  {background:var(--red-mid);    color:var(--red);}
+.q-type-tag.blank  {background:var(--teal-bg);    color:var(--teal);}
+.q-type-tag.order  {background:var(--yellow-mid); color:var(--yellow);}
+.q-type-tag.insert {background:var(--purple-bg);  color:var(--purple);}
+.q-type-tag.flow   {background:var(--orange-bg);  color:var(--orange);}
+
+/* ═══════════════════════════════
+   문장 카드 — 심플 left-border
+═══════════════════════════════ */
+.sent{
+  padding:14px 16px;
+  margin-bottom:10px;
+  border-left:2px solid var(--g200);
+  background:#fff;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  transition:border-color .15s;
+}
+.sent:hover{border-left-color:var(--g400);}
+
+/* 핵심 문장 — 노란 강조 */
+.sent.key-sent{
+  border-left:2px solid var(--yellow);
+  background:var(--yellow-bg);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+/* 오류 강조 — 빨간 */
+.sent.wrong-sent{
+  border-left:2px solid var(--red);
+  background:var(--red-bg);
+}
+
+/* 문장 번호 */
+.sent-num{
+  font-size:11px;font-weight:700;letter-spacing:.3px;
+  color:var(--g400);text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+/* 원문 */
+.eng-line{
+  font-size:15px;font-weight:500;color:var(--g900);
+  line-height:1.85;margin-bottom:12px;
+  word-break:keep-all;
+}
+.eng-line u{
+  text-decoration-color:var(--red);
+  text-underline-offset:3px;
+  text-decoration-thickness:1.5px;
+}
+
+/* ─── 의미구 분석 박스 ─── */
+.parse-box{
+  background:var(--g50);
+  border:1px solid var(--g100);
+  border-radius:var(--radius-md);
+  padding:10px 14px;
+  margin-bottom:10px;
+}
+.phrase{
+  display:flex;align-items:baseline;gap:7px;
+  padding:3px 0;font-size:13px;line-height:1.6;
+}
+.plabel{
+  display:inline-block;font-size:10px;font-weight:700;
+  letter-spacing:.3px;padding:1px 7px;
+  border-radius:100px;flex-shrink:0;
+  min-width:30px;text-align:center;
+}
+.plabel.subj{background:var(--blue-mid);  color:var(--blue);}
+.plabel.verb{background:var(--red-mid);   color:var(--red);}
+.plabel.obj {background:var(--green-mid); color:var(--green);}
+.plabel.comp{background:var(--orange-bg); color:var(--orange);}
+.plabel.mod {background:var(--g100);      color:var(--g500);}
+.plabel.conj{background:var(--purple-bg); color:var(--purple);}
+.peng{color:var(--g800);font-weight:500;}
+.pkor{color:var(--g500);font-size:12px;}
+
+/* ─── 문법 노트 ─── */
+.grammar-note{
+  display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;
+  background:var(--blue-bg);
+  border-radius:var(--radius-sm);
+  padding:10px 14px;
+  margin-bottom:10px;
+  font-size:13px;color:var(--g700);line-height:1.7;
+}
+.gn-tag{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;letter-spacing:.3px;
+  padding:2px 8px;border-radius:100px;
+  flex-shrink:0;
+}
+.gn-tag.grammar  {background:var(--blue);  color:#fff;}
+.gn-tag.blank    {background:var(--teal);  color:#fff;}
+.gn-tag.vocab-tag{background:var(--green); color:#fff;}
+
+/* ─── 어휘 배지 ─── */
+.vocab-badges{
+  display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;
+}
+.badge{
+  font-size:11px;font-weight:600;letter-spacing:-0.1px;
+  padding:3px 10px;border-radius:100px;
+}
+.badge.syn  {background:var(--green-bg);color:var(--green);}
+.badge.ant  {background:var(--red-bg);  color:var(--red);}
+.badge.key  {background:var(--blue-bg); color:var(--blue);}
+.badge.wrong{background:var(--red-mid); color:var(--red);}
+
+/* ─── 한국어 해석 ─── */
+.kor-line{
+  font-size:13px;color:var(--g500);line-height:1.75;
+  padding:6px 0 0 12px;
+  border-left:2px solid var(--g200);
+}
+
+/* ─── 선택지 ─── */
+.choices{
+  background:var(--g50);
+  border:1px solid var(--g100);
+  border-radius:var(--radius-md);
+  padding:14px 18px;
+  margin-bottom:14px;
+}
+.choice{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:5px 0;font-size:13.5px;line-height:1.6;
+  border-bottom:1px solid var(--g100);
+  color:var(--g700);
+}
+.choice:last-child{border-bottom:none;}
+.choice .cnum{font-weight:700;color:var(--g400);min-width:16px;flex-shrink:0;}
+.choice.correct{color:var(--blue);font-weight:700;}
+.choice.correct .cnum{color:var(--blue);}
+.choice.wrong-ans{color:var(--red);}
+
+/* ─── 요약 박스 ─── */
+.summary-box{
+  background:#fff;
+  border:1px solid var(--g200);
+  border-top:2px solid var(--g900);
+  border-radius:0 0 var(--radius-md) var(--radius-md);
+  padding:18px 20px;
+  margin-top:20px;
+}
+.sum-item{
+  padding:10px 0;
+  border-bottom:1px solid var(--g100);
+  font-size:13px;line-height:1.75;
+}
+.sum-item:last-child{border-bottom:none;padding-bottom:0;}
+.sum-label{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;letter-spacing:.3px;
+  padding:2px 9px;border-radius:100px;
+  margin-bottom:5px;text-transform:uppercase;
+}
+.sum-label.logic {background:var(--yellow-mid);color:var(--yellow);}
+.sum-label.answer{background:var(--blue-mid);  color:var(--blue);}
+.sum-label.wrong {background:var(--red-mid);   color:var(--red);}
+.sum-label.voca  {background:var(--green-mid); color:var(--green);}
+.sum-content{color:var(--g600);}
+
+/* ─── 바닥글 ─── */
+.footer{
+  text-align:center;
+  padding:32px 0 24px;
+  margin-top:48px;
+  border-top:1px solid var(--g200);
+}
+.footer .brand{
+  font-size:15px;font-weight:800;color:var(--g900);
+  letter-spacing:-0.4px;margin-bottom:4px;
+}
+.footer .by{font-size:13px;color:var(--g400);font-weight:500;}
+
+/* ─── 반응형 ─── */
+@media(max-width:520px){
+  .wrap{padding:0 14px 72px;}
+  .q-card{padding:20px 16px;}
+  .top-header{padding:32px 0 20px;}
+  .top-header h1{font-size:21px;}
+  .eng-line{font-size:14.5px;}
+  .pill{height:30px;padding:0 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══ 헤더 ═══ -->
+<div class="top-header">
+  <h1>송우고2 2026 3모 중간고사 범위 <span style="color:var(--blue)">Part 1</span></h1>
+  <div class="sub">Witheun by.은서쌤 · 20~28번</div>
+</div>
+
+<!-- ═══ 탭 네비게이션 ═══ -->
+<div class="pill-nav" id="pillNav">
+  <span class="pill active" data-q="q20">20</span>
+  <span class="pill" data-q="q21">21</span>
+  <span class="pill" data-q="q24">24</span>
+  <span class="pill" data-q="q26">26</span>
+  <span class="pill" data-q="q28">28</span>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Q20 주장 파악 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="q-panel active" id="q20">
+<div class="q-card">
+  <div class="q-title">
+    <span class="q-num">20</span>
+    <span class="q-type">다음 글에서 필자가 주장하는 바로 가장 적절한 것은?</span>
+    <span class="q-type-tag claim">주장</span>
+  </div>
+
+  <!-- S1 -->
+  <div class="sent">
+    <div class="sent-num">01</div>
+    <div class="eng-line">When moving into a new situation, many people decide that they need to master what's new.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel mod">부사구</span><span class="peng">When moving into a new situation,</span><span class="pkor">새로운 상황으로 들어설 때,</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">many people</span><span class="pkor">많은 사람들은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">decide</span><span class="pkor">결심한다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">that they need to master what's new</span><span class="pkor">새로운 것을 숙지해야 한다고</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>분사구문 When moving</strong>: When they move의 축약형. 주절과 주어 동일 시 분사구문 가능. that절은 decide의 목적어(명사절).
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">master 숙지하다</span>
+      <span class="badge syn">(유) master = get the hang of</span>
+    </div>
+    <div class="kor-line">새로운 상황으로 들어설 때, 많은 사람들은 새로운 것을 숙지해야 한다고 결심한다.</div>
+  </div>
+
+  <!-- S2 -->
+  <div class="sent">
+    <div class="sent-num">02</div>
+    <div class="eng-line">To this end, they reduce their connections to people or activities that might distract them from their goal.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel mod">부사구</span><span class="peng">To this end,</span><span class="pkor">이러한 목적을 위해,</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">they</span><span class="pkor">그들은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">reduce</span><span class="pkor">줄인다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">their connections to people or activities</span><span class="pkor">사람이나 활동과의 연결을</span></div>
+      <div class="phrase"><span class="plabel mod">수식절</span><span class="peng">that might distract them from their goal</span><span class="pkor">목표에서 주의를 분산시킬 수 있는</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>관계대명사 that</strong>: people or activities를 수식. <strong>distract A from B</strong>: A의 주의를 B로부터 분산시키다.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">distract 주의를 분산시키다</span>
+      <span class="badge key">connection 연결, 관계</span>
+    </div>
+    <div class="kor-line">이러한 목적을 위해, 그들은 자신의 목표에서 주의를 분산시킬 수 있는 사람이나 활동과의 연결을 줄인다.</div>
+  </div>
+
+  <!-- S3 -->
+  <div class="sent">
+    <div class="sent-num">03</div>
+    <div class="eng-line">But that is a mistake.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel conj">접속</span><span class="peng">But</span><span class="pkor">하지만</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">that</span><span class="pkor">이는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">~이다</span></div>
+      <div class="phrase"><span class="plabel comp">C</span><span class="peng">a mistake</span><span class="pkor">실수</span></div>
+    </div>
+    <div class="kor-line">하지만 이는 실수이다.</div>
+  </div>
+
+  <!-- S4 -->
+  <div class="sent">
+    <div class="sent-num">04</div>
+    <div class="eng-line">Being too focused can lead to becoming unidimensional — you have few remedies to the microstresses that are inevitably bombarding you at that time.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Being too focused</span><span class="pkor">너무 집중하는 것은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">can lead to</span><span class="pkor">~으로 이끌 수 있다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">becoming unidimensional</span><span class="pkor">일차원적이 되는 것</span></div>
+      <div class="phrase"><span class="plabel mod">설명</span><span class="peng">— you have few remedies to the microstresses</span><span class="pkor">미세한 스트레스에 대한 치료제가 거의 없다</span></div>
+      <div class="phrase"><span class="plabel mod">수식절</span><span class="peng">that are inevitably bombarding you at that time</span><span class="pkor">그 시기에 불가피하게 쏟아지는</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>동명사 주어</strong>: Being too focused(동명사구)가 주어. <strong>lead to + -ing</strong>: ~하는 것으로 이끌다. 대시(—)로 부연설명.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">unidimensional 일차원적인</span>
+      <span class="badge key">remedy 치료제, 해결책</span>
+      <span class="badge key">inevitably 불가피하게</span>
+      <span class="badge key">bombard 폭탄처럼 쏟아붓다</span>
+    </div>
+    <div class="kor-line">너무 집중하는 것은 일차원적이 되도록 이끌 수 있으며 — 당신에게 그 시기에 불가피하게 쏟아지는 미세한 스트레스에 대한 치료제가 거의 없게 된다.</div>
+  </div>
+
+  <!-- S5 -->
+  <div class="sent">
+    <div class="sent-num">05</div>
+    <div class="eng-line">So when things are tough during such a transition, you have almost nothing else in your life to counterbalance the stress.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel mod">부사절</span><span class="peng">So when things are tough during such a transition,</span><span class="pkor">그래서 이러한 전환기에 상황이 힘들어지면,</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">you</span><span class="pkor">당신은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">have</span><span class="pkor">가지고 있다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">almost nothing else in your life</span><span class="pkor">삶에 거의 아무것도 없다</span></div>
+      <div class="phrase"><span class="plabel mod">to부정사</span><span class="peng">to counterbalance the stress</span><span class="pkor">스트레스를 상쇄할</span></div>
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">transition 전환, 전환기</span>
+      <span class="badge key">counterbalance 상쇄하다</span>
+    </div>
+    <div class="kor-line">그래서 이러한 전환기에 상황이 힘들어지면 스트레스를 상쇄할 만한 것이 당신의 삶에는 거의 없게 된다.</div>
+  </div>
+
+  <!-- S6 - KEY -->
+  <div class="sent key-sent">
+    <div class="sent-num">06 ★ 주제문</div>
+    <div class="eng-line">Instead of staying laser-focused, use this transition as the jumping-off point for building new networks to shape the work you want to do and whom you want to do it with.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel mod">부사구</span><span class="peng">Instead of staying laser-focused,</span><span class="pkor">레이저처럼 집중만 하는 대신,</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">(you — 명령문)</span><span class="pkor">(생략)</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">use</span><span class="pkor">활용하라</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">this transition</span><span class="pkor">이 전환기를</span></div>
+      <div class="phrase"><span class="plabel comp">C</span><span class="peng">as the jumping-off point for building new networks</span><span class="pkor">새로운 네트워크를 구축하는 발판으로</span></div>
+      <div class="phrase"><span class="plabel mod">to부정사</span><span class="peng">to shape the work you want to do and whom you want to do it with</span><span class="pkor">자신이 하고 싶은 일과 함께할 사람을 구상하기 위해</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>명령문</strong>: 주어 you 생략. <strong>Instead of + -ing</strong>: ~하는 대신. <strong>jumping-off point</strong>: 출발점, 발판. <strong>whom</strong>: 전치사 with의 목적격 관계대명사.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">jumping-off point 발판, 출발점</span>
+      <span class="badge key">shape 구상하다, 형성하다</span>
+      <span class="badge key">network 인맥, 네트워크</span>
+    </div>
+    <div class="kor-line">레이저처럼 집중만 하는 대신, 이 전환기를 자신이 하고 싶은 일과 그 일을 누구와 하고 싶은지를 구상하기 위해 새로운 네트워크를 구축하는 발판으로 활용하라.</div>
+  </div>
+
+  <!-- 선택지 -->
+  <div class="choices">
+    <div class="choice"><span class="cnum">①</span> 새로운 일을 시작할 때는 방해 요소를 없애야 한다.</div>
+    <div class="choice"><span class="cnum">②</span> 스트레스 관리를 위해 정기적으로 휴식을 취해야 한다.</div>
+    <div class="choice"><span class="cnum">③</span> 갈등 상황에서는 다양한 가치를 모두 균형 있게 고려해야 한다.</div>
+    <div class="choice"><span class="cnum">④</span> 변화의 시기를 직업 전문성 향상의 기회로 활용해야 한다.</div>
+    <div class="choice correct"><span class="cnum">⑤</span> 전환기를 새로운 네트워크 구축의 발판으로 삼아야 한다. ✓</div>
+  </div>
+
+  <!-- 요약 -->
+  <div class="summary-box">
+    <div class="sum-item"><span class="sum-label logic">💡 핵심 논리</span><br><span class="sum-content">새 상황 진입 시 목표에만 집중하면 → 일차원적 존재 → 스트레스 대응 수단 상실. 따라서 전환기를 새 네트워크 구축의 발판으로 삼아야 한다.</span></div>
+    <div class="sum-item"><span class="sum-label answer">🎯 정답 ⑤</span><br><span class="sum-content">"use this transition as the jumping-off point for building new networks" — 전환기를 네트워크 구축의 발판으로 활용하라는 필자의 핵심 주장.</span></div>
+    <div class="sum-item"><span class="sum-label wrong">✗ 오답 분석</span><br><span class="sum-content">① 필자는 방해요소를 없애면 안 된다고 주장 ② 정기적 휴식은 미언급 ③ 다양한 가치 균형은 미언급 ④ 직업 전문성이 아닌 네트워크 구축이 핵심</span></div>
+    <div class="sum-item"><span class="sum-label voca">📚 핵심 어휘</span><br><span class="sum-content">unidimensional(일차원적) · remedy(치료제) · counterbalance(상쇄하다) · jumping-off point(발판) · bombard(쏟아붓다)</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Q21 밑줄 의미 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="q-panel" id="q21">
+<div class="q-card">
+  <div class="q-title">
+    <span class="q-num">21</span>
+    <span class="q-type">밑줄 친 having a "blank face"가 의미하는 바로 가장 적절한 것은? [3점]</span>
+    <span class="q-type-tag meaning">함의</span>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">01</div>
+    <div class="eng-line">A first step toward establishing a respectful classroom learning community is acceptance of all ideas and answers — regardless of any obvious errors.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">A first step toward establishing a respectful classroom learning community</span><span class="pkor">존중하는 교실 학습 공동체를 구축하는 첫 단계는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">~이다</span></div>
+      <div class="phrase"><span class="plabel comp">C</span><span class="peng">acceptance of all ideas and answers</span><span class="pkor">모든 생각과 답의 수용</span></div>
+      <div class="phrase"><span class="plabel mod">부사구</span><span class="peng">regardless of any obvious errors</span><span class="pkor">어떤 명백한 오류와도 상관없이</span></div>
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">establish 구축하다</span>
+      <span class="badge key">respectful 존중하는</span>
+      <span class="badge key">acceptance 수용</span>
+      <span class="badge key">regardless of ~와 상관없이</span>
+    </div>
+    <div class="kor-line">존중하는 교실 학습 공동체를 구축하는 첫 단계는 어떠한 명백한 오류와도 상관없이 모든 생각과 답을 수용하는 것이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">02</div>
+    <div class="eng-line">Rich mathematical discussions cannot occur if this expectation is not in place.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Rich mathematical discussions</span><span class="pkor">풍부한 수학적 토론은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">cannot occur</span><span class="pkor">일어날 수 없다</span></div>
+      <div class="phrase"><span class="plabel mod">조건절</span><span class="peng">if this expectation is not in place</span><span class="pkor">이 기대가 갖추어지지 않으면</span></div>
+    </div>
+    <div class="kor-line">풍부한 수학적 토론은 이러한 기대가 갖추어지지 않으면 일어날 수 없다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">03</div>
+    <div class="eng-line">We must remember that wrong answers are often rooted in misconceptions, and unless these ideas are allowed to be brought to the forefront, we cannot help students confront their thinking.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">We</span><span class="pkor">우리는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">must remember</span><span class="pkor">기억해야 한다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">that wrong answers are often rooted in misconceptions</span><span class="pkor">틀린 답이 종종 오개념에 근거한다는 것을</span></div>
+      <div class="phrase"><span class="plabel mod">조건절</span><span class="peng">unless these ideas are allowed to be brought to the forefront</span><span class="pkor">이런 생각이 전면에 나올 수 있도록 허용되지 않으면</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">we cannot help students confront their thinking</span><span class="pkor">학생들이 자신의 사고와 마주하도록 돕지 못한다</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>help + O + V(원형)</strong>: 사역동사 패턴. <strong>be allowed to be brought</strong>: 수동태 + to부정사(이중 수동). <strong>rooted in</strong>: ~에 근거한.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">misconception 오개념</span>
+      <span class="badge key">forefront 전면, 선두</span>
+      <span class="badge key">confront 마주하다</span>
+    </div>
+    <div class="kor-line">우리는 틀린 답이 종종 오개념에 근거하고 있다는 것을 기억해야 하며, 이러한 생각이 전면으로 나올 수 있도록 허용되지 않으면 학생들이 자신의 사고와 마주하도록 돕지 못한다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">04</div>
+    <div class="eng-line">Students who are in safe learning environments are willing to risk sharing an incorrect answer with their peers in order to grow mathematically.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Students who are in safe learning environments</span><span class="pkor">안전한 학습 환경에 있는 학생들은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">are willing to risk sharing</span><span class="pkor">기꺼이 위험을 감수하고 공유한다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">an incorrect answer with their peers</span><span class="pkor">동료와 틀린 답을</span></div>
+      <div class="phrase"><span class="plabel mod">목적</span><span class="peng">in order to grow mathematically</span><span class="pkor">수학적으로 성장하기 위해</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>risk + -ing</strong>: ~하는 위험을 감수하다. <strong>be willing to</strong>: 기꺼이 ~하다. <strong>in order to</strong>: ~하기 위해(목적).
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">willing 기꺼이 하는</span>
+      <span class="badge key">risk 위험을 감수하다</span>
+      <span class="badge key">peer 동료, 또래</span>
+    </div>
+    <div class="kor-line">안전한 학습 환경에 있는 학생들은 수학적으로 성장하기 위해 동료와 틀린 답을 나누는 위험을 기꺼이 감수한다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">05</div>
+    <div class="eng-line">It is important to model and expect the acceptance of all ideas without derogatory comments.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">It (가주어)</span><span class="pkor">~하는 것은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">is important</span><span class="pkor">중요하다</span></div>
+      <div class="phrase"><span class="plabel obj">진주어</span><span class="peng">to model and expect the acceptance of all ideas without derogatory comments</span><span class="pkor">비하 의견 없이 모든 생각의 수용을 본보기로 보이고 기대하는 것</span></div>
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">model 본보기를 보이다</span>
+      <span class="badge key">derogatory 비하하는</span>
+    </div>
+    <div class="kor-line">비하하는 의견 없이 모든 생각의 수용을 본보기로 보이고 기대하는 것이 중요하다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">06</div>
+    <div class="eng-line">As educators we can model this by recording all answers to be considered without giving any verbal or physical expressions that indicate agreement or disagreement with any answer.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">As educators we</span><span class="pkor">교육자로서 우리는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">can model this</span><span class="pkor">이를 본보기로 보일 수 있다</span></div>
+      <div class="phrase"><span class="plabel mod">수단</span><span class="peng">by recording all answers to be considered</span><span class="pkor">모든 답을 고려 대상으로 기록함으로써</span></div>
+      <div class="phrase"><span class="plabel mod">조건</span><span class="peng">without giving any verbal or physical expressions that indicate agreement or disagreement</span><span class="pkor">동의나 반대를 나타내는 어떤 언어적·신체적 표현도 주지 않으면서</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>by + -ing</strong>: ~함으로써(수단). <strong>without + -ing</strong>: ~하지 않으면서. <strong>that절</strong>: expressions를 수식하는 관계절.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">verbal 언어적인</span>
+      <span class="badge key">expression 표현, 표정</span>
+      <span class="badge key">agreement 동의</span>
+    </div>
+    <div class="kor-line">교육자로서 우리는 어떤 답에 대해서도 동의나 반대를 나타내는 어떠한 언어적 또는 신체적 표현도 주지 않으면서 모든 답을 고려 대상으로 기록함으로써 이를 본보기로 보일 수 있다.</div>
+  </div>
+
+  <!-- S7 - KEY (밑줄) -->
+  <div class="sent key-sent">
+    <div class="sent-num">07 ★ 밑줄 문장</div>
+    <div class="eng-line"><u>The teacher may need to practice having a "blank face."</u></div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">The teacher</span><span class="pkor">교사는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">may need to practice</span><span class="pkor">연습할 필요가 있을 수도 있다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">having a "blank face"</span><span class="pkor">'무표정'을 갖는 것을</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag blank">★빈칸/함의</span>
+      <strong>"blank face"</strong>는 앞 문장의 "without giving any verbal or physical expressions that indicate agreement or disagreement"를 비유적으로 표현. 즉, 학생의 답에 대해 <strong>평가적 반응(동의/반대)을 억제</strong>하는 것.
+    </div>
+    <div class="kor-line">교사는 '무표정'을 갖는 것을 연습할 필요가 있을 수도 있다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">08</div>
+    <div class="eng-line">Students look to teachers as the source of correct answers.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Students</span><span class="pkor">학생들은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">look to</span><span class="pkor">~에게서 찾는다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">teachers as the source of correct answers</span><span class="pkor">교사에게서 정답의 근원을</span></div>
+    </div>
+    <div class="kor-line">학생들은 정답의 근원을 교사에게서 찾는다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">09</div>
+    <div class="eng-line">Part of building a safe learning community is to shift this source of knowledge to the students by equipping them to defend the thinking behind their solutions.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Part of building a safe learning community</span><span class="pkor">안전한 학습 공동체 구축의 일부는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">is</span><span class="pkor">~이다</span></div>
+      <div class="phrase"><span class="plabel comp">C</span><span class="peng">to shift this source of knowledge to the students</span><span class="pkor">이 지식의 근원을 학생에게로 옮기는 것</span></div>
+      <div class="phrase"><span class="plabel mod">수단</span><span class="peng">by equipping them to defend the thinking behind their solutions</span><span class="pkor">해결책 뒤의 사고를 방어하도록 학생들을 준비시킴으로써</span></div>
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">shift 옮기다</span>
+      <span class="badge key">equip 준비시키다</span>
+      <span class="badge key">defend 방어하다, 설명하다</span>
+    </div>
+    <div class="kor-line">안전한 학습 공동체를 구축하는 일부는 학생들이 자신의 해결책 뒤의 사고를 설명할 수 있도록 준비시킴으로써 이 지식의 근원을 학생에게로 옮기는 것이다.</div>
+  </div>
+
+  <div class="choices">
+    <div class="choice"><span class="cnum">①</span> avoiding the urge to resolve students' emotional conflicts</div>
+    <div class="choice correct"><span class="cnum">②</span> suppressing evaluative responses to students' answers ✓</div>
+    <div class="choice"><span class="cnum">③</span> treating all answers as correct to facilitate learning</div>
+    <div class="choice"><span class="cnum">④</span> indicating misconceptions in mathematical discussions</div>
+    <div class="choice"><span class="cnum">⑤</span> controlling facial expressions to maintain strict authority</div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sum-item"><span class="sum-label logic">💡 핵심 논리</span><br><span class="sum-content">안전한 학습 환경 → 모든 답 수용 → 동의/반대 표현 억제 → 교사는 "무표정(blank face)"을 연습 = 학생 답에 대한 평가적 반응을 억제.</span></div>
+    <div class="sum-item"><span class="sum-label answer">🎯 정답 ②</span><br><span class="sum-content">suppressing evaluative responses to students' answers — "without giving any expressions that indicate agreement or disagreement"가 직접적 근거.</span></div>
+    <div class="sum-item"><span class="sum-label wrong">✗ 오답 분석</span><br><span class="sum-content">① 감정 갈등 해소는 미언급 ③ 모든 답을 '정답'으로 취급이 아니라 평가를 안 드러내는 것 ④ 오개념 표시가 아닌 표현 억제 ⑤ 엄격한 권위 유지가 아님</span></div>
+    <div class="sum-item"><span class="sum-label voca">📚 핵심 어휘</span><br><span class="sum-content">blank face(무표정) · evaluative(평가적) · suppress(억제하다) · derogatory(비하하는) · misconception(오개념)</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Q24 제목 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="q-panel" id="q24">
+<div class="q-card">
+  <div class="q-title">
+    <span class="q-num">24</span>
+    <span class="q-type">다음 글의 제목으로 가장 적절한 것은? [3점]</span>
+    <span class="q-type-tag title">제목</span>
+  </div>
+
+  <div class="sent key-sent">
+    <div class="sent-num">01 ★ 주제문</div>
+    <div class="eng-line">Rooms have their own "sound" because they impose their own characteristics on audio signals contained within them.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Rooms</span><span class="pkor">방은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">have</span><span class="pkor">갖는다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">their own "sound"</span><span class="pkor">자체적인 '소리'를</span></div>
+      <div class="phrase"><span class="plabel mod">이유</span><span class="peng">because they impose their own characteristics on audio signals contained within them</span><span class="pkor">그 안에 담긴 오디오 신호에 자체 특성을 부여하기 때문에</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>impose A on B</strong>: A를 B에 부여/부과하다. <strong>contained within them</strong>: 과거분사가 audio signals를 후치 수식.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">impose 부여하다</span>
+      <span class="badge key">characteristics 특성</span>
+    </div>
+    <div class="kor-line">방은 자체적인 '소리'를 갖는데 이는 그것이 그 안에 담긴 오디오 신호에 자체 특성을 부여하기 때문이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">02</div>
+    <div class="eng-line">It's actually kind of remarkable.</div>
+    <div class="kor-line">실제로 이는 꽤 놀라운 일이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">03</div>
+    <div class="eng-line">Sound such as music coming from headphones will sound the same everywhere.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Sound such as music coming from headphones</span><span class="pkor">헤드폰에서 나오는 음악 같은 소리는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">will sound</span><span class="pkor">들릴 것이다</span></div>
+      <div class="phrase"><span class="plabel comp">C</span><span class="peng">the same everywhere</span><span class="pkor">어디서나 똑같이</span></div>
+    </div>
+    <div class="kor-line">헤드폰에서 나오는 음악 같은 소리는 어디서나 똑같이 들릴 것이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">04</div>
+    <div class="eng-line">No matter what acoustical environment we are in, the headphones sound the same.</div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>No matter what</strong> = Whatever: 양보의 부사절. ~하든 관계없이.
+    </div>
+    <div class="kor-line">우리가 어떤 음향 환경에 있든지 관계없이 헤드폰은 똑같이 들린다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">05</div>
+    <div class="eng-line">That's because the room is not part of that playback signal path.</div>
+    <div class="vocab-badges">
+      <span class="badge key">playback 재생</span>
+      <span class="badge key">signal path 신호 경로</span>
+    </div>
+    <div class="kor-line">그것은 방이 그 재생 신호 경로의 일부가 아니기 때문이다.</div>
+  </div>
+
+  <div class="sent key-sent">
+    <div class="sent-num">06 ★ 핵심</div>
+    <div class="eng-line">But sound such as music from a loudspeaker will sound different in every acoustical environment.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel conj">접속</span><span class="peng">But</span><span class="pkor">하지만</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">sound such as music from a loudspeaker</span><span class="pkor">스피커에서 나오는 음악 같은 소리는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">will sound different</span><span class="pkor">다르게 들린다</span></div>
+      <div class="phrase"><span class="plabel mod">부사구</span><span class="peng">in every acoustical environment</span><span class="pkor">모든 음향 환경에서</span></div>
+    </div>
+    <div class="kor-line">하지만 스피커에서 나오는 음악 같은 소리는 모든 음향 환경마다 다르게 들린다.</div>
+  </div>
+
+  <div class="sent key-sent">
+    <div class="sent-num">07 ★ 핵심</div>
+    <div class="eng-line">Every room where you set up the loudspeaker will cause the sound you hear to be different — sometimes dramatically different; that is because the room is now part of the signal path.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">Every room where you set up the loudspeaker</span><span class="pkor">스피커를 설치하는 모든 방은</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">will cause</span><span class="pkor">~하게 만든다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">the sound you hear to be different</span><span class="pkor">당신이 듣는 소리를 다르게</span></div>
+      <div class="phrase"><span class="plabel mod">이유</span><span class="peng">the room is now part of the signal path</span><span class="pkor">방이 이제 신호 경로의 일부이기 때문이다</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★어법</span>
+      <strong>cause O to V</strong>: O가 ~하게 만들다(사역). <strong>where</strong>: 관계부사(장소). 대시(—)로 정도 강조, 세미콜론 후 이유 설명.
+    </div>
+    <div class="vocab-badges">
+      <span class="badge key">dramatically 극적으로</span>
+    </div>
+    <div class="kor-line">스피커를 설치하는 모든 방은 당신이 듣는 소리가 다르게 되도록 만들 것이다 — 때때로 극적으로 다르게. 그것은 이제 방이 신호 경로의 일부이기 때문이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">08</div>
+    <div class="eng-line">Also, in the same room, the loudspeaker will sound different when it is placed in different locations in the room and it will sound different as you move around the room.</div>
+    <div class="kor-line">또한 같은 방 안에서 스피커는 방의 다른 위치에 놓일 때 다르게 들릴 것이고 당신이 방 주변을 움직일 때도 다르게 들릴 것이다.</div>
+  </div>
+
+  <div class="sent">
+    <div class="sent-num">09</div>
+    <div class="eng-line">Similarly, when you are recording a musical instrument, the sound you receive at the microphone will be different in every room and the recorded sound will sound different as the instrument or the microphone is moved.</div>
+    <div class="kor-line">유사하게, 악기를 녹음할 때 마이크에서 받는 소리는 모든 방마다 다를 것이고 악기나 마이크가 움직일 때 녹음된 소리도 다르게 들릴 것이다.</div>
+  </div>
+
+  <div class="choices">
+    <div class="choice"><span class="cnum">①</span> Headphones vs. Loudspeakers: Which One Wins?</div>
+    <div class="choice correct"><span class="cnum">②</span> When Space Enters the Sound's Route to the Ear ✓</div>
+    <div class="choice"><span class="cnum">③</span> Musical Instruments as Key Players in Sound Quality</div>
+    <div class="choice"><span class="cnum">④</span> From Signal to Sound: Principles of Sound Transmission</div>
+    <div class="choice"><span class="cnum">⑤</span> Chasing Consistent Sound Effects Through Shifting Spaces</div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sum-item"><span class="sum-label logic">💡 핵심 논리</span><br><span class="sum-content">헤드폰 소리 = 방 영향 無(경로 미포함) → 동일. 스피커 소리 = 방이 경로에 포함 → 모든 방·위치·이동에 따라 다름. 핵심: <strong>공간이 소리 경로에 들어오면 소리가 달라진다.</strong></span></div>
+    <div class="sum-item"><span class="sum-label answer">🎯 정답 ②</span><br><span class="sum-content">"When Space Enters the Sound's Route to the Ear" — 공간(space)이 소리의 경로(route)에 들어갈 때 = "the room is now part of the signal path"</span></div>
+    <div class="sum-item"><span class="sum-label wrong">✗ 오답 분석</span><br><span class="sum-content">① 헤드폰 vs 스피커 비교는 보조 설명일 뿐 ③ 악기는 예시에 불과 ④ 신호 전달 원리가 아닌 '공간의 역할'이 핵심 ⑤ 일관된 효과 추적이 아닌 공간의 영향이 주제</span></div>
+    <div class="sum-item"><span class="sum-label voca">📚 핵심 어휘</span><br><span class="sum-content">signal path(신호 경로) · impose(부여하다) · acoustical(음향의) · playback(재생) · dramatically(극적으로)</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Q26 내용 불일치 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="q-panel" id="q26">
+<div class="q-card">
+  <div class="q-title">
+    <span class="q-num">26</span>
+    <span class="q-type">Dennis William Sciama에 관한 글의 내용과 일치하지 않는 것은?</span>
+    <span class="q-type-tag tf">불일치</span>
+  </div>
+
+  <div class="sent"><div class="sent-num">01</div><div class="eng-line">Dennis William Sciama was born in Manchester, England, in 1926.</div><div class="kor-line">Dennis William Sciama는 1926년 영국 맨체스터에서 태어났다.</div></div>
+
+  <div class="sent"><div class="sent-num">02</div><div class="eng-line">He received an education in mathematics and physics at Malvern College.</div><div class="kor-line">그는 Malvern College에서 수학과 물리학 교육을 받았다. → <strong>①과 일치</strong></div></div>
+
+  <div class="sent"><div class="sent-num">03</div>
+    <div class="eng-line">Despite his father's wish for him to take over the family business, Sciama chose to continue pursuing his academic career.</div>
+    <div class="grammar-note"><span class="gn-tag grammar">★어법</span> <strong>Despite + 명사구</strong>: ~에도 불구하고. <strong>choose to V</strong>: ~하기로 선택하다.</div>
+    <div class="vocab-badges"><span class="badge key">take over 인수하다</span><span class="badge key">pursue 추구하다</span></div>
+    <div class="kor-line">아버지의 가업을 이어받으라는 바람에도 불구하고, Sciama는 학업을 계속 추구하기로 선택했다.</div>
+  </div>
+
+  <div class="sent"><div class="sent-num">04</div>
+    <div class="eng-line">After earning a doctoral degree in physics from the University of Cambridge in 1953, he became famous for his research on the universe.</div>
+    <div class="kor-line">1953년 Cambridge 대학교에서 물리학 박사 학위를 취득한 후, 그는 우주에 관한 연구로 유명해졌다. → <strong>②와 일치</strong></div>
+  </div>
+
+  <div class="sent"><div class="sent-num">05</div>
+    <div class="eng-line">Early in his career, Sciama supported the steady-state theory, which argued that the universe had no beginning.</div>
+    <div class="vocab-badges"><span class="badge key">steady-state theory 정상 상태 이론</span></div>
+    <div class="kor-line">경력 초기에, Sciama는 우주에 시작이 없다고 주장하는 정상 상태 이론을 지지했다.</div>
+  </div>
+
+  <div class="sent wrong-sent">
+    <div class="sent-num">06 ★ 정답 근거</div>
+    <div class="eng-line">However, when new evidence against the theory appeared in the 1960s, he changed his view and <strong>accepted</strong> the Big Bang model.</div>
+    <div class="parse-box">
+      <div class="phrase"><span class="plabel conj">접속</span><span class="peng">However,</span><span class="pkor">그러나,</span></div>
+      <div class="phrase"><span class="plabel mod">시간절</span><span class="peng">when new evidence against the theory appeared in the 1960s</span><span class="pkor">1960년대에 그 이론에 반하는 새 증거가 나타났을 때</span></div>
+      <div class="phrase"><span class="plabel subj">S</span><span class="peng">he</span><span class="pkor">그는</span></div>
+      <div class="phrase"><span class="plabel verb">V</span><span class="peng">changed his view and accepted</span><span class="pkor">견해를 바꾸어 받아들였다</span></div>
+      <div class="phrase"><span class="plabel obj">O</span><span class="peng">the Big Bang model</span><span class="pkor">빅뱅 모델을</span></div>
+    </div>
+    <div class="grammar-note">
+      <span class="gn-tag grammar">★핵심</span>
+      <strong>accepted</strong>(받아들였다) ≠ 반대했다. 선택지 ③ "Big Bang model에 반대했다"는 본문과 <strong>정반대</strong>.
+    </div>
+    <div class="kor-line">그러나 1960년대에 그 이론에 반하는 새로운 증거가 나타났을 때, 그는 자신의 견해를 바꾸어 빅뱅 모델을 <strong>받아들였다</strong>. → <strong>③과 불일치!</strong></div>
+  </div>
+
+  <div class="sent"><div class="sent-num">07</div><div class="eng-line">In 1991, he was awarded the Guthrie Medal for outstanding contributions to experimental physics by the British Institute of Physics.</div><div class="kor-line">1991년, 그는 영국 물리학회로부터 실험 물리학에 대한 탁월한 공헌으로 Guthrie Medal을 받았다. → <strong>④와 일치</strong></div></div>
+
+  <div class="sent"><div class="sent-num">08</div><div class="eng-line">Sciama's role as a mentor became known even outside academic circles.</div><div class="kor-line">Sciama의 멘토로서의 역할은 학문적 영역 밖에서도 알려지게 되었다.</div></div>
+
+  <div class="sent"><div class="sent-num">09</div><div class="eng-line">Later, he was introduced in films about his most famous student, Stephen Hawking, which made Sciama known to a wider audience.</div><div class="kor-line">이후 그는 가장 유명한 학생인 Stephen Hawking에 관한 영화에서 소개되었다. → <strong>⑤와 일치</strong></div></div>
+
+  <div class="choices">
+    <div class="choice"><span class="cnum">①</span> Malvern College에서 수학과 물리학 교육을 받았다.</div>
+    <div class="choice"><span class="cnum">②</span> 1953년에 물리학 박사 학위를 취득했다.</div>
+    <div class="choice correct"><span class="cnum">③</span> 자신의 견해를 바꾸어 Big Bang model에 반대했다. ✓ (불일치)</div>
+    <div class="choice"><span class="cnum">④</span> 실험 물리학에 대한 탁월한 공헌으로 Guthrie Medal을 받았다.</div>
+    <div class="choice"><span class="cnum">⑤</span> Stephen Hawking에 관한 영화에서 소개되었다.</div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sum-item"><span class="sum-label answer">🎯 정답 ③</span><br><span class="sum-content">본문: "accepted the Big Bang model"(받아들였다). 선택지 ③: "반대했다" → <strong>정반대</strong> 서술이므로 불일치.</span></div>
+    <div class="sum-item"><span class="sum-label voca">📚 핵심 어휘</span><br><span class="sum-content">steady-state theory(정상 상태 이론) · accept(받아들이다) ↔ reject(거부하다) · evidence(증거) · contribution(공헌)</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Q28 안내문 일치 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="q-panel" id="q28">
+<div class="q-card">
+  <div class="q-title">
+    <span class="q-num">28</span>
+    <span class="q-type">Library of Things에 관한 안내문의 내용과 일치하는 것은?</span>
+    <span class="q-type-tag tf">일치</span>
+  </div>
+
+  <div class="sent"><div class="sent-num">01</div><div class="eng-line">Use the "Library of Things" and borrow what you need from our community center.</div><div class="kor-line">"Library of Things"를 이용하여 커뮤니티 센터에서 필요한 것을 빌리세요.</div></div>
+
+  <div class="sent"><div class="sent-num">How It Works</div>
+    <div class="eng-line">1. To use this service, download the "Library of Things" app and <strong>log in</strong>.</div>
+    <div class="kor-line">이 서비스를 사용하려면 앱을 다운로드하고 <strong>로그인</strong>하세요. → ① 로그인 필수(불일치)</div>
+  </div>
+
+  <div class="sent"><div class="sent-num">02</div>
+    <div class="eng-line">2. Check out and reserve what you need in the app. (<strong>Online reservation only</strong>)</div>
+    <div class="kor-line">앱에서 필요한 물품을 확인하고 예약하세요. (<strong>온라인 예약만</strong> 가능) → ② 방문 접수 불가(불일치)</div>
+  </div>
+
+  <div class="sent"><div class="sent-num">03</div>
+    <div class="eng-line">3. Pick up your item from <strong>Monday to Sunday</strong>.</div>
+    <div class="kor-line">월요일부터 일요일까지 물품을 수령하세요. → ③ 매일 가능, 주중만 아님(불일치)</div>
+  </div>
+
+  <div class="sent"><div class="sent-num">04</div><div class="eng-line">4. Return it in good condition for your neighbors.</div><div class="kor-line">이웃을 위해 양호한 상태로 반납하세요.</div></div>
+
+  <div class="sent"><div class="sent-num">05</div><div class="eng-line">Available Items: Household tools and camping gear</div><div class="kor-line">이용 가능 물품: 가정용 도구 및 캠핑 장비</div></div>
+
+  <div class="sent key-sent">
+    <div class="sent-num">06 ★ 정답 근거</div>
+    <div class="eng-line">Borrowing Period: Items can be borrowed for up to 7 days, with <strong>one possible extension</strong>.</div>
+    <div class="vocab-badges"><span class="badge key">extension 연장</span></div>
+    <div class="kor-line">대여 기간: 최대 7일, <strong>1회 연장 가능</strong>. → <strong>④와 일치!</strong></div>
+  </div>
+
+  <div class="sent"><div class="sent-num">07</div>
+    <div class="eng-line">Fee: It's <strong>free</strong>. Only if returned late, a late fee of $2 will be charged daily.</div>
+    <div class="kor-line">요금: <strong>무료</strong>. 연체 시에만 일일 $2 연체료 부과. → ⑤ 대여료는 무료(불일치)</div>
+  </div>
+
+  <div class="choices">
+    <div class="choice"><span class="cnum">①</span> 로그인하지 않아도 서비스를 이용할 수 있다. ✗</div>
+    <div class="choice"><span class="cnum">②</span> 방문 접수를 통해 대여 예약이 가능하다. ✗</div>
+    <div class="choice"><span class="cnum">③</span> 주중에만 예약한 물품을 수령할 수 있다. ✗</div>
+    <div class="choice correct"><span class="cnum">④</span> 대여 기간 연장은 한 번 가능하다. ✓</div>
+    <div class="choice"><span class="cnum">⑤</span> 대여료는 하루에 2달러이다. ✗</div>
+  </div>
+
+  <div class="summary-box">
+    <div class="sum-item"><span class="sum-label answer">🎯 정답 ④</span><br><span class="sum-content">"with one possible extension" = 1회 연장 가능. 나머지: ① 로그인 필수 ② 온라인만 ③ 월~일 매일 ⑤ 기본 무료(연체만 $2/일)</span></div>
+    <div class="sum-item"><span class="sum-label voca">📚 핵심 어휘</span><br><span class="sum-content">reserve(예약하다) · extension(연장) · late fee(연체료) · household(가정용의) · borrow(빌리다)</span></div>
+  </div>
+</div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// Pill Tab Navigation
+const pills = document.querySelectorAll('.pill');
+const panels = document.querySelectorAll('.q-panel');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    document.getElementById(pill.dataset.q).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  const active = document.querySelector('.pill.active');
+  const allPills = [...pills];
+  const idx = allPills.indexOf(active);
+  if (e.key === 'ArrowRight' && idx < allPills.length - 1) {
+    allPills[idx + 1].click();
+  } else if (e.key === 'ArrowLeft' && idx > 0) {
+    allPills[idx - 1].click();
+  }
+});
+</script>
+</body>
+</html>
